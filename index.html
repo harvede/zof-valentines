@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Zofia 💖</title>
+<style>
+body {
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+background: linear-gradient(135deg, #ffd6e8, #ffeef6);
+height: 100vh;
+margin: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.card {
+background: white;
+padding: 40px;
+border-radius: 20px;
+text-align: center;
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+max-width: 420px;
+width: 90%;
+}
+
+h1 {
+margin-bottom: 30px;
+}
+
+.buttons {
+position: relative;
+height: 120px;
+}
+
+button {
+padding: 14px 28px;
+font-size: 18px;
+border-radius: 999px;
+border: none;
+cursor: pointer;
+transition: all 0.2s ease;
+position: absolute;
+}
+
+#yes {
+background: #ff4d8d;
+color: white;
+left: 50%;
+transform: translateX(-50%);
+}
+
+#no {
+background: #eee;
+color: #555;
+right: 10px;
+}
+
+.hidden {
+display: none;
+}
+
+img {
+max-width: 100%;
+border-radius: 16px;
+margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+<div class="card" id="question">
+<h1>Zofia, will you be my Valentine? 💘</h1>
+
+<div class="buttons">
+<button id="yes">Yes</button>
+<button id="no">No</button>
+</div>
+</div>
+
+<div class="card hidden" id="success">
+<h1>YAY!!! 🥰🎉</h1>
+<p>I knew you’d say yes 💖</p>
+
+<!-- OPTIONAL: replace this image -->
+<img src="images/zof-yes.jpg" alt="Us">
+
+<p style="margin-top:20px;">Happy Valentine’s Day, beautiful ❤️</p>
+</div>
+
+<script>
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+const question = document.getElementById("question");
+const success = document.getElementById("success");
+
+let yesScale = 1;
+
+noBtn.addEventListener("mouseenter", () => {
+const x = Math.random() * 200 - 100;
+const y = Math.random() * 80 - 40;
+noBtn.style.transform = `translate(${x}px, ${y}px)`;
+yesScale += 0.1;
+yesBtn.style.transform = `translateX(-50%) scale(${yesScale})`;
+});
+
+yesBtn.addEventListener("click", () => {
+question.classList.add("hidden");
+success.classList.remove("hidden");
+});
+</script>
+</body>
+</html>
